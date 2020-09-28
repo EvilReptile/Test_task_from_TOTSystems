@@ -1,0 +1,16 @@
+@(error: String)
+<html>
+    <head>
+        <title>Insert database entry</title>
+    </head>
+    <body>
+        @helper.form(action = routes.CRUDController.insertPost){
+            <p><input type="text" name="secid">Введите secid</input></p>
+            <p><input type="text" name="regnumber">Введите regnumber</input></p>
+            <p><input type="text" name="name">Введите name</input></p>
+            <p><input type="text" name="emitent_title">Введите emitent title</input></p>
+            <input type="submit">
+        }
+        @error
+    </body>
+</html>

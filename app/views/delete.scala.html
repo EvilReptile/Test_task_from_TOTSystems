@@ -1,0 +1,17 @@
+@(secList: List[String])
+<html>
+    <head>
+        <title>Delete database entry</title>
+    </head>
+    <body>
+        @helper.form(action = routes.CRUDController.deletePost){
+            <select name="security">
+                <option disabled>Выберите нужный вам secid</option>
+                @for(sec <- secList){
+                    <option value="@sec">@sec</option>
+                }
+            </select>
+            <input type="submit">
+        }
+    </body>
+</html>

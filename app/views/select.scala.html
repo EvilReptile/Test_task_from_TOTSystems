@@ -1,0 +1,32 @@
+@import model._
+@(secList: List[String], security: Security)
+<html>
+    <head>
+        <title>Select database entry</title>
+    </head>
+    <body>
+        @helper.form(action = routes.CRUDController.selectPost){
+            <select name="security">
+                <option disabled selected>Выберите нужный вам secid</option>
+                @for(sec <- secList){
+                    <option value="@sec">@sec</option>
+                }
+            </select>
+            <input type="submit">
+        }
+        <table border="1">
+            <tr>
+                <th>secid</th>
+                <th>regnumber</th>
+                <th>name</th>
+                <th>emitent title</th>
+            </tr>
+            <tr>
+                <td>@security.secid</td>
+                <td>@security.regnumber</td>
+                <td>@security.name</td>
+                <td>@security.emitent_title</td>
+            </tr>
+        </table>
+    </body>
+</html>

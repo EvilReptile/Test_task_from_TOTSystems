@@ -1,0 +1,53 @@
+@import model._
+@(history: List[History])
+<html>
+    <head>
+        <title>List history</title>
+    </head>
+    <body>
+        @helper.form(action = routes.MainController.listPost){
+            <p>
+                <input type="radio" name="sort_type" value="ascending">По возрастанию</input>
+                <input type="radio" name="sort_type" value="descending">По убыванию</input>
+                <select name="column">
+                    <option disabled selected>Выберите нужный вам столбец</option>
+                    <option value="secid">secid</option>
+                    <option value="regnumber">regnumber</option>
+                    <option value="name">name</option>
+                    <option value="emitent_title">emitent title</option>
+                    <option value="tradedate">tradedate</option>
+                    <option value="numtrade">numtrade</option>
+                    <option value="open">open</option>
+                    <option value="close">close</option>
+                </select>
+            </p>
+            <p>
+                <input type="submit">
+            </p>
+        }
+        <table border="1">
+            <tr>
+                <th>secid</th>
+                <th>regnumber</th>
+                <th>name</th>
+                <th>emitent title</th>
+                <th>tradedate</th>
+                <th>numtrade</th>
+                <th>open</th>
+                <th>close</th>
+            </tr>
+            @for(element <- history){
+                <tr>
+                    <td>@element.security.secid</td>
+                    <td>@element.security.regnumber</td>
+                    <td>@element.security.name</td>
+                    <td>@element.security.emitent_title</td>
+                    <td>@element.tradedate</td>
+                    <td>@element.numtrade</td>
+                    <td>@element.open</td>
+                    <td>@element.close</td>
+                </tr>
+            }
+        </table>
+    </body>
+</html>
