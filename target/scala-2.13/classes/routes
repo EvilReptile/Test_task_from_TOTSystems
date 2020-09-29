@@ -16,7 +16,7 @@ POST    /select                     controllers.CRUDController.selectPost
 GET     /select                     controllers.CRUDController.select
 
 POST    /update                     controllers.CRUDController.updatePost
-GET     /update                     controllers.CRUDController.update
+GET     /update/:secid              controllers.CRUDController.update(secid: String)
 
 POST    /delete                     controllers.CRUDController.deletePost
 GET     /delete                     controllers.CRUDController.delete

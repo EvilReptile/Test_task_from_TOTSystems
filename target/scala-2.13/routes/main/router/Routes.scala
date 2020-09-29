@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/chameleon/Project/Scala/Test_task_from_TOTSystems/conf/routes
-// @DATE:Tue Sep 29 14:22:02 MSK 2020
+// @DATE:Wed Sep 30 01:30:53 MSK 2020
 
 package router
 
@@ -50,7 +50,7 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """select""", """controllers.CRUDController.selectPost"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """select""", """controllers.CRUDController.select"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """update""", """controllers.CRUDController.updatePost"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """update""", """controllers.CRUDController.update"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """update/""" + "$" + """secid<[^/]+>""", """controllers.CRUDController.update(secid:String)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """delete""", """controllers.CRUDController.deletePost"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """delete""", """controllers.CRUDController.delete"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """insert""", """controllers.CRUDController.insertPost"""),
@@ -190,17 +190,17 @@ class Routes(
 
   // @LINE:19
   private[this] lazy val controllers_CRUDController_update7_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("update")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("update/"), DynamicPart("secid", """[^/]+""",true)))
   )
   private[this] lazy val controllers_CRUDController_update7_invoker = createInvoker(
-    CRUDController_0.update,
+    CRUDController_0.update(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.CRUDController",
       "update",
-      Nil,
+      Seq(classOf[String]),
       "GET",
-      this.prefix + """update""",
+      this.prefix + """update/""" + "$" + """secid<[^/]+>""",
       """""",
       Seq()
     )
@@ -325,8 +325,8 @@ class Routes(
   
     // @LINE:19
     case controllers_CRUDController_update7_route(params@_) =>
-      call { 
-        controllers_CRUDController_update7_invoker.call(CRUDController_0.update)
+      call(params.fromPath[String]("secid", None)) { (secid) =>
+        controllers_CRUDController_update7_invoker.call(CRUDController_0.update(secid))
       }
   
     // @LINE:21

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/chameleon/Project/Scala/Test_task_from_TOTSystems/conf/routes
-// @DATE:Tue Sep 29 14:22:02 MSK 2020
+// @DATE:Wed Sep 30 01:30:53 MSK 2020
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -118,22 +118,22 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:19
+    def update: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CRUDController.update",
+      """
+        function(secid0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "update/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("secid", secid0))})
+        }
+      """
+    )
+  
     // @LINE:24
     def insertPost: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CRUDController.insertPost",
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "insert"})
-        }
-      """
-    )
-  
-    // @LINE:19
-    def update: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.CRUDController.update",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "update"})
         }
       """
     )

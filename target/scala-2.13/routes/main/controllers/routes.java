@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/chameleon/Project/Scala/Test_task_from_TOTSystems/conf/routes
-// @DATE:Tue Sep 29 14:22:02 MSK 2020
+// @DATE:Wed Sep 30 01:30:53 MSK 2020
 
 package controllers;
 

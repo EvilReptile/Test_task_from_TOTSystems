@@ -1,14 +1,13 @@
 package controllers
 
-import java.io.File
 import java.sql.ResultSet
 import javax.inject.Inject
 
-import model._
-import scala.xml.XML._
-import scala.xml.Elem
+import scala.annotation.tailrec
 import play.api.db.Database
 import play.api.mvc.{BaseController, ControllerComponents}
+
+import model._
 
 /**
  * Контроллер для отображения истории
@@ -30,28 +29,40 @@ class MainController @Inject()(db: Database, val controllerComponents: Controlle
 
   // Интерфейс для отображения списка данных с применением параметров сортировки
   def listPost() = Action{request =>
-    Ok(views.html.list(getList(request.body.asFormUrlEncoded.get("sort_type").head.toString(), request.body.asFormUrlEncoded.get("column").head.toString())))
+    Ok(views.html.list(getList(request.body.asFormUrlEncoded.get("sort_type").head.toString(),
+                                request.body.asFormUrlEncoded.get("column").head.toString())))
   }
 
+  // Метод получения записей из БД по параметрам
   private def getList(sortType: String, sortColumn: String): List[(History, Security)] ={
     db.withConnection{conn =>
-      val res = conn.createStatement().executeQuery("select history.secid, regnumber, name, emitent_title, tradedate, numtrade, open, close " +
+
+      // Вложенный метод парсинга результата запроса с помощью хвостовой рекурсии
+      @tailrec
+      def parse(result: List[(History, Security)], res: ResultSet):List[(History, Security)] =
+        if(res.next())
+          parse(
+            (History(res.getString("secid"),
+                      res.getString("tradedate"),
+                      res.getDouble("numtrade"),
+                      res.getDouble("open"),
+                      res.getDouble("close")),
+            Security(res.getString("secid"),
+                      res.getString("regnumber"),
+                      res.getString("name"),
+                      res.getString("emitent_title")
+            )) :: result, res)
+        else
+          result
+
+      parse(Nil, conn.createStatement().executeQuery(
+        "select history.secid, regnumber, name, emitent_title, tradedate, numtrade, open, close " +
         "from history " +
         "inner join securities on (securities.secid=history.secid) " +
-        s"order by $sortColumn $sortType")
-      buildList(Nil, res)
+        s"order by $sortColumn $sortType"))
+
     }
   }
 
-  private def buildList(result: List[(History, Security)], res: ResultSet):List[(History, Security)] ={
-    if(res.next()){
-      if(result == Nil)
-        buildList((History(res.getString("secid"), res.getString("tradedate"), res.getDouble("numtrade"), res.getDouble("open"), res.getDouble("close")),
-          Security(res.getString("secid"), res.getString("regnumber"), res.getString("name"), res.getString("emitent_title"))) :: Nil, res)
-      else
-        buildList((History(res.getString("secid"), res.getString("tradedate"), res.getDouble("numtrade"), res.getDouble("open"), res.getDouble("close")),
-                Security(res.getString("secid"), res.getString("regnumber"), res.getString("name"), res.getString("emitent_title"))) :: result, res)
-    }else
-      result
-  }
+
 }

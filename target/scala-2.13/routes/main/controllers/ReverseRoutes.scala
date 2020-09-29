@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/chameleon/Project/Scala/Test_task_from_TOTSystems/conf/routes
-// @DATE:Tue Sep 29 14:22:02 MSK 2020
+// @DATE:Wed Sep 30 01:30:53 MSK 2020
 
 import play.api.mvc.Call
 
@@ -83,16 +83,16 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "insert")
     }
   
+    // @LINE:19
+    def update(secid:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "update/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("secid", secid)))
+    }
+  
     // @LINE:24
     def insertPost(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "insert")
-    }
-  
-    // @LINE:19
-    def update(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "update")
     }
   
     // @LINE:18

@@ -6,7 +6,7 @@
     </head>
     <body>
     @helper.form(action = routes.CRUDController.updatePost){
-        <p><input type="text" name="secid" value="@sec.secid">Secid</input></p>
+        <p><input type="text" name="secid" value="@sec.secid" readonly>Secid</input></p>
         <p><input type="text" name="regnumber" value="@sec.regnumber">Regnumber</input></p>
         <p><input type="text" name="name" value="@sec.name">Name</input></p>
         <p><input type="text" name="emitent_title" value="@sec.emitent_title">Emitent title</input></p>
