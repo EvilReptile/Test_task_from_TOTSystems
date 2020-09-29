@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/chameleon/Project/Scala/test_task_from_totsystems/conf/routes
-// @DATE:Tue Sep 29 13:41:29 MSK 2020
+// @SOURCE:/home/chameleon/Project/Scala/Test_task_from_TOTSystems/conf/routes
+// @DATE:Tue Sep 29 14:22:02 MSK 2020
 
 package router
 
@@ -14,12 +14,10 @@ import _root_.controllers.Assets.Asset
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:7
-  Assets_2: controllers.Assets,
-  // @LINE:9
   UploadController_1: controllers.UploadController,
-  // @LINE:12
-  MainController_3: controllers.MainController,
-  // @LINE:16
+  // @LINE:11
+  MainController_2: controllers.MainController,
+  // @LINE:15
   CRUDController_0: controllers.CRUDController,
   val prefix: String
 ) extends GeneratedRouter {
@@ -27,19 +25,17 @@ class Routes(
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:7
-    Assets_2: controllers.Assets,
-    // @LINE:9
     UploadController_1: controllers.UploadController,
-    // @LINE:12
-    MainController_3: controllers.MainController,
-    // @LINE:16
+    // @LINE:11
+    MainController_2: controllers.MainController,
+    // @LINE:15
     CRUDController_0: controllers.CRUDController
-  ) = this(errorHandler, Assets_2, UploadController_1, MainController_3, CRUDController_0, "/")
+  ) = this(errorHandler, UploadController_1, MainController_2, CRUDController_0, "/")
 
   def withPrefix(addPrefix: String): Routes = {
     val prefix = play.api.routing.Router.concatPrefix(addPrefix, this.prefix)
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, Assets_2, UploadController_1, MainController_3, CRUDController_0, prefix)
+    new Routes(errorHandler, UploadController_1, MainController_2, CRUDController_0, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -47,7 +43,6 @@ class Routes(
   }
 
   def documentation = List(
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """upload""", """controllers.UploadController.uploadPost"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """upload""", """controllers.UploadController.upload"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """list""", """controllers.MainController.list"""),
@@ -68,28 +63,10 @@ class Routes(
 
 
   // @LINE:7
-  private[this] lazy val controllers_Assets_versioned0_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
-  )
-  private[this] lazy val controllers_Assets_versioned0_invoker = createInvoker(
-    Assets_2.versioned(fakeValue[String], fakeValue[Asset]),
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.Assets",
-      "versioned",
-      Seq(classOf[String], classOf[Asset]),
-      "GET",
-      this.prefix + """assets/""" + "$" + """file<.+>""",
-      """ Map static resources from the /public folder to the /assets URL path""",
-      Seq()
-    )
-  )
-
-  // @LINE:9
-  private[this] lazy val controllers_UploadController_uploadPost1_route = Route("POST",
+  private[this] lazy val controllers_UploadController_uploadPost0_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("upload")))
   )
-  private[this] lazy val controllers_UploadController_uploadPost1_invoker = createInvoker(
+  private[this] lazy val controllers_UploadController_uploadPost0_invoker = createInvoker(
     UploadController_1.uploadPost,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -98,16 +75,16 @@ class Routes(
       Nil,
       "POST",
       this.prefix + """upload""",
-      """""",
+      """ API реализация загрузки файлов с данными и подгрузке данных в БД""",
       Seq()
     )
   )
 
-  // @LINE:10
-  private[this] lazy val controllers_UploadController_upload2_route = Route("GET",
+  // @LINE:8
+  private[this] lazy val controllers_UploadController_upload1_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("upload")))
   )
-  private[this] lazy val controllers_UploadController_upload2_invoker = createInvoker(
+  private[this] lazy val controllers_UploadController_upload1_invoker = createInvoker(
     UploadController_1.upload,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -121,12 +98,12 @@ class Routes(
     )
   )
 
-  // @LINE:12
-  private[this] lazy val controllers_MainController_list3_route = Route("GET",
+  // @LINE:11
+  private[this] lazy val controllers_MainController_list2_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("list")))
   )
-  private[this] lazy val controllers_MainController_list3_invoker = createInvoker(
-    MainController_3.list,
+  private[this] lazy val controllers_MainController_list2_invoker = createInvoker(
+    MainController_2.list,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.MainController",
@@ -134,17 +111,17 @@ class Routes(
       Nil,
       "GET",
       this.prefix + """list""",
-      """""",
+      """ API реализация получения данных истории""",
       Seq()
     )
   )
 
-  // @LINE:13
-  private[this] lazy val controllers_MainController_listPost4_route = Route("POST",
+  // @LINE:12
+  private[this] lazy val controllers_MainController_listPost3_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("list")))
   )
-  private[this] lazy val controllers_MainController_listPost4_invoker = createInvoker(
-    MainController_3.listPost,
+  private[this] lazy val controllers_MainController_listPost3_invoker = createInvoker(
+    MainController_2.listPost,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.MainController",
@@ -157,11 +134,11 @@ class Routes(
     )
   )
 
-  // @LINE:16
-  private[this] lazy val controllers_CRUDController_selectPost5_route = Route("POST",
+  // @LINE:15
+  private[this] lazy val controllers_CRUDController_selectPost4_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("select")))
   )
-  private[this] lazy val controllers_CRUDController_selectPost5_invoker = createInvoker(
+  private[this] lazy val controllers_CRUDController_selectPost4_invoker = createInvoker(
     CRUDController_0.selectPost,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -175,11 +152,11 @@ class Routes(
     )
   )
 
-  // @LINE:17
-  private[this] lazy val controllers_CRUDController_select6_route = Route("GET",
+  // @LINE:16
+  private[this] lazy val controllers_CRUDController_select5_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("select")))
   )
-  private[this] lazy val controllers_CRUDController_select6_invoker = createInvoker(
+  private[this] lazy val controllers_CRUDController_select5_invoker = createInvoker(
     CRUDController_0.select,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -193,11 +170,11 @@ class Routes(
     )
   )
 
-  // @LINE:19
-  private[this] lazy val controllers_CRUDController_updatePost7_route = Route("POST",
+  // @LINE:18
+  private[this] lazy val controllers_CRUDController_updatePost6_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("update")))
   )
-  private[this] lazy val controllers_CRUDController_updatePost7_invoker = createInvoker(
+  private[this] lazy val controllers_CRUDController_updatePost6_invoker = createInvoker(
     CRUDController_0.updatePost,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -211,11 +188,11 @@ class Routes(
     )
   )
 
-  // @LINE:20
-  private[this] lazy val controllers_CRUDController_update8_route = Route("GET",
+  // @LINE:19
+  private[this] lazy val controllers_CRUDController_update7_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("update")))
   )
-  private[this] lazy val controllers_CRUDController_update8_invoker = createInvoker(
+  private[this] lazy val controllers_CRUDController_update7_invoker = createInvoker(
     CRUDController_0.update,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -229,11 +206,11 @@ class Routes(
     )
   )
 
-  // @LINE:22
-  private[this] lazy val controllers_CRUDController_deletePost9_route = Route("POST",
+  // @LINE:21
+  private[this] lazy val controllers_CRUDController_deletePost8_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("delete")))
   )
-  private[this] lazy val controllers_CRUDController_deletePost9_invoker = createInvoker(
+  private[this] lazy val controllers_CRUDController_deletePost8_invoker = createInvoker(
     CRUDController_0.deletePost,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -247,11 +224,11 @@ class Routes(
     )
   )
 
-  // @LINE:23
-  private[this] lazy val controllers_CRUDController_delete10_route = Route("GET",
+  // @LINE:22
+  private[this] lazy val controllers_CRUDController_delete9_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("delete")))
   )
-  private[this] lazy val controllers_CRUDController_delete10_invoker = createInvoker(
+  private[this] lazy val controllers_CRUDController_delete9_invoker = createInvoker(
     CRUDController_0.delete,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -265,11 +242,11 @@ class Routes(
     )
   )
 
-  // @LINE:25
-  private[this] lazy val controllers_CRUDController_insertPost11_route = Route("POST",
+  // @LINE:24
+  private[this] lazy val controllers_CRUDController_insertPost10_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("insert")))
   )
-  private[this] lazy val controllers_CRUDController_insertPost11_invoker = createInvoker(
+  private[this] lazy val controllers_CRUDController_insertPost10_invoker = createInvoker(
     CRUDController_0.insertPost,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -283,11 +260,11 @@ class Routes(
     )
   )
 
-  // @LINE:26
-  private[this] lazy val controllers_CRUDController_insert12_route = Route("GET",
+  // @LINE:25
+  private[this] lazy val controllers_CRUDController_insert11_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("insert")))
   )
-  private[this] lazy val controllers_CRUDController_insert12_invoker = createInvoker(
+  private[this] lazy val controllers_CRUDController_insert11_invoker = createInvoker(
     CRUDController_0.insert,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -305,81 +282,75 @@ class Routes(
   def routes: PartialFunction[RequestHeader, Handler] = {
   
     // @LINE:7
-    case controllers_Assets_versioned0_route(params@_) =>
-      call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned0_invoker.call(Assets_2.versioned(path, file))
+    case controllers_UploadController_uploadPost0_route(params@_) =>
+      call { 
+        controllers_UploadController_uploadPost0_invoker.call(UploadController_1.uploadPost)
       }
   
-    // @LINE:9
-    case controllers_UploadController_uploadPost1_route(params@_) =>
+    // @LINE:8
+    case controllers_UploadController_upload1_route(params@_) =>
       call { 
-        controllers_UploadController_uploadPost1_invoker.call(UploadController_1.uploadPost)
+        controllers_UploadController_upload1_invoker.call(UploadController_1.upload)
       }
   
-    // @LINE:10
-    case controllers_UploadController_upload2_route(params@_) =>
+    // @LINE:11
+    case controllers_MainController_list2_route(params@_) =>
       call { 
-        controllers_UploadController_upload2_invoker.call(UploadController_1.upload)
+        controllers_MainController_list2_invoker.call(MainController_2.list)
       }
   
     // @LINE:12
-    case controllers_MainController_list3_route(params@_) =>
+    case controllers_MainController_listPost3_route(params@_) =>
       call { 
-        controllers_MainController_list3_invoker.call(MainController_3.list)
+        controllers_MainController_listPost3_invoker.call(MainController_2.listPost)
       }
   
-    // @LINE:13
-    case controllers_MainController_listPost4_route(params@_) =>
+    // @LINE:15
+    case controllers_CRUDController_selectPost4_route(params@_) =>
       call { 
-        controllers_MainController_listPost4_invoker.call(MainController_3.listPost)
+        controllers_CRUDController_selectPost4_invoker.call(CRUDController_0.selectPost)
       }
   
     // @LINE:16
-    case controllers_CRUDController_selectPost5_route(params@_) =>
+    case controllers_CRUDController_select5_route(params@_) =>
       call { 
-        controllers_CRUDController_selectPost5_invoker.call(CRUDController_0.selectPost)
+        controllers_CRUDController_select5_invoker.call(CRUDController_0.select)
       }
   
-    // @LINE:17
-    case controllers_CRUDController_select6_route(params@_) =>
+    // @LINE:18
+    case controllers_CRUDController_updatePost6_route(params@_) =>
       call { 
-        controllers_CRUDController_select6_invoker.call(CRUDController_0.select)
+        controllers_CRUDController_updatePost6_invoker.call(CRUDController_0.updatePost)
       }
   
     // @LINE:19
-    case controllers_CRUDController_updatePost7_route(params@_) =>
+    case controllers_CRUDController_update7_route(params@_) =>
       call { 
-        controllers_CRUDController_updatePost7_invoker.call(CRUDController_0.updatePost)
+        controllers_CRUDController_update7_invoker.call(CRUDController_0.update)
       }
   
-    // @LINE:20
-    case controllers_CRUDController_update8_route(params@_) =>
+    // @LINE:21
+    case controllers_CRUDController_deletePost8_route(params@_) =>
       call { 
-        controllers_CRUDController_update8_invoker.call(CRUDController_0.update)
+        controllers_CRUDController_deletePost8_invoker.call(CRUDController_0.deletePost)
       }
   
     // @LINE:22
-    case controllers_CRUDController_deletePost9_route(params@_) =>
+    case controllers_CRUDController_delete9_route(params@_) =>
       call { 
-        controllers_CRUDController_deletePost9_invoker.call(CRUDController_0.deletePost)
+        controllers_CRUDController_delete9_invoker.call(CRUDController_0.delete)
       }
   
-    // @LINE:23
-    case controllers_CRUDController_delete10_route(params@_) =>
+    // @LINE:24
+    case controllers_CRUDController_insertPost10_route(params@_) =>
       call { 
-        controllers_CRUDController_delete10_invoker.call(CRUDController_0.delete)
+        controllers_CRUDController_insertPost10_invoker.call(CRUDController_0.insertPost)
       }
   
     // @LINE:25
-    case controllers_CRUDController_insertPost11_route(params@_) =>
+    case controllers_CRUDController_insert11_route(params@_) =>
       call { 
-        controllers_CRUDController_insertPost11_invoker.call(CRUDController_0.insertPost)
-      }
-  
-    // @LINE:26
-    case controllers_CRUDController_insert12_route(params@_) =>
-      call { 
-        controllers_CRUDController_insert12_invoker.call(CRUDController_0.insert)
+        controllers_CRUDController_insert11_invoker.call(CRUDController_0.insert)
       }
   }
 }

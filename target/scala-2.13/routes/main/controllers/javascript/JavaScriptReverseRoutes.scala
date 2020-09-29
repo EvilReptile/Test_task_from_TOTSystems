@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/chameleon/Project/Scala/test_task_from_totsystems/conf/routes
-// @DATE:Tue Sep 29 13:41:29 MSK 2020
+// @SOURCE:/home/chameleon/Project/Scala/Test_task_from_TOTSystems/conf/routes
+// @DATE:Tue Sep 29 14:22:02 MSK 2020
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -10,7 +10,7 @@ import _root_.controllers.Assets.Asset
 // @LINE:7
 package controllers.javascript {
 
-  // @LINE:12
+  // @LINE:11
   class ReverseMainController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -18,7 +18,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:12
+    // @LINE:11
     def list: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.MainController.list",
       """
@@ -28,7 +28,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:13
+    // @LINE:12
     def listPost: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.MainController.listPost",
       """
@@ -41,26 +41,6 @@ package controllers.javascript {
   }
 
   // @LINE:7
-  class ReverseAssets(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:7
-    def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Assets.versioned",
-      """
-        function(file1) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[play.api.mvc.PathBindable[Asset]].javascriptUnbind + """)("file", file1)})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:9
   class ReverseUploadController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -68,7 +48,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:9
+    // @LINE:7
     def uploadPost: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UploadController.uploadPost",
       """
@@ -78,7 +58,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:10
+    // @LINE:8
     def upload: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UploadController.upload",
       """
@@ -90,7 +70,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:16
+  // @LINE:15
   class ReverseCRUDController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -98,7 +78,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:23
+    // @LINE:22
     def delete: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CRUDController.delete",
       """
@@ -108,7 +88,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:17
+    // @LINE:16
     def select: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CRUDController.select",
       """
@@ -118,7 +98,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:16
+    // @LINE:15
     def selectPost: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CRUDController.selectPost",
       """
@@ -128,7 +108,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:26
+    // @LINE:25
     def insert: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CRUDController.insert",
       """
@@ -138,7 +118,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:25
+    // @LINE:24
     def insertPost: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CRUDController.insertPost",
       """
@@ -148,7 +128,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:20
+    // @LINE:19
     def update: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CRUDController.update",
       """
@@ -158,7 +138,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:19
+    // @LINE:18
     def updatePost: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CRUDController.updatePost",
       """
@@ -168,7 +148,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:22
+    // @LINE:21
     def deletePost: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CRUDController.deletePost",
       """

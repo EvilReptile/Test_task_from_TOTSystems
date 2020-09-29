@@ -7,11 +7,10 @@
     <body>
         @helper.form(action = routes.MainController.listPost){
             <p>
-                <input type="radio" name="sort_type" value="ascending">По возрастанию</input>
-                <input type="radio" name="sort_type" value="descending">По убыванию</input>
+                <input type="radio" name="sort_type" value="asc">По возрастанию</input>
+                <input type="radio" name="sort_type" value="desc" checked>По убыванию</input>
                 <select name="column">
-                    <option disabled selected>Выберите нужный вам столбец</option>
-                    <option value="secid">secid</option>
+                    <option value="secid" selected>secid</option>
                     <option value="regnumber">regnumber</option>
                     <option value="name">name</option>
                     <option value="emitent_title">emitent title</option>

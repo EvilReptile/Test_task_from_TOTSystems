@@ -1,5 +1,5 @@
 [0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/chameleon/Project/Scala/test_task_from_totsystems/conf/application.conf,/home/chameleon/Project/Scala/test_task_from_totsystems/target/scala-2.13/classes/application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/chameleon/Project/Scala/test_task_from_totsystems/conf/messages,/home/chameleon/Project/Scala/test_task_from_totsystems/target/scala-2.13/classes/messages)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/chameleon/Project/Scala/test_task_from_totsystems/conf/logback.xml,/home/chameleon/Project/Scala/test_task_from_totsystems/target/scala-2.13/classes/logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/chameleon/Project/Scala/test_task_from_totsystems/conf/routes,/home/chameleon/Project/Scala/test_task_from_totsystems/target/scala-2.13/classes/routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/chameleon/Project/Scala/Test_task_from_TOTSystems/conf/application.conf,/home/chameleon/Project/Scala/Test_task_from_TOTSystems/target/scala-2.13/classes/application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/chameleon/Project/Scala/Test_task_from_TOTSystems/conf/messages,/home/chameleon/Project/Scala/Test_task_from_TOTSystems/target/scala-2.13/classes/messages)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/chameleon/Project/Scala/Test_task_from_TOTSystems/conf/logback.xml,/home/chameleon/Project/Scala/Test_task_from_TOTSystems/target/scala-2.13/classes/logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/chameleon/Project/Scala/Test_task_from_TOTSystems/conf/routes,/home/chameleon/Project/Scala/Test_task_from_TOTSystems/target/scala-2.13/classes/routes)[0m

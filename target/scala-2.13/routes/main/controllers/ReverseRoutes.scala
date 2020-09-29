@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/chameleon/Project/Scala/test_task_from_totsystems/conf/routes
-// @DATE:Tue Sep 29 13:41:29 MSK 2020
+// @SOURCE:/home/chameleon/Project/Scala/Test_task_from_TOTSystems/conf/routes
+// @DATE:Tue Sep 29 14:22:02 MSK 2020
 
 import play.api.mvc.Call
 
@@ -10,20 +10,20 @@ import _root_.controllers.Assets.Asset
 // @LINE:7
 package controllers {
 
-  // @LINE:12
+  // @LINE:11
   class ReverseMainController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:12
+    // @LINE:11
     def list(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "list")
     }
   
-    // @LINE:13
+    // @LINE:12
     def listPost(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "list")
@@ -32,34 +32,19 @@ package controllers {
   }
 
   // @LINE:7
-  class ReverseAssets(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:7
-    def versioned(file:Asset): Call = {
-      implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
-      Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
-    }
-  
-  }
-
-  // @LINE:9
   class ReverseUploadController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:9
+    // @LINE:7
     def uploadPost(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "upload")
     }
   
-    // @LINE:10
+    // @LINE:8
     def upload(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "upload")
@@ -67,56 +52,56 @@ package controllers {
   
   }
 
-  // @LINE:16
+  // @LINE:15
   class ReverseCRUDController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:23
+    // @LINE:22
     def delete(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "delete")
     }
   
-    // @LINE:17
+    // @LINE:16
     def select(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "select")
     }
   
-    // @LINE:16
+    // @LINE:15
     def selectPost(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "select")
     }
   
-    // @LINE:26
+    // @LINE:25
     def insert(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "insert")
     }
   
-    // @LINE:25
+    // @LINE:24
     def insertPost(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "insert")
     }
   
-    // @LINE:20
+    // @LINE:19
     def update(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "update")
     }
   
-    // @LINE:19
+    // @LINE:18
     def updatePost(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "update")
     }
   
-    // @LINE:22
+    // @LINE:21
     def deletePost(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "delete")

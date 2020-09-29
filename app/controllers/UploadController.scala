@@ -70,9 +70,17 @@ class UploadController @Inject()(db: Database, val controllerComponents: Control
       case "history" =>
         add(History(line.attributes("SECID").toString(),
                     line.attributes("TRADEDATE").toString(),
-                    line.attributes("NUMTRADES").toString(),
-                    line.attributes("OPEN").toString(),
-                    line.attributes("CLOSE").toString()))
+                    ex(line.attributes("NUMTRADES").toString()).toDouble,
+                    ex(line.attributes("OPEN").toString()).toDouble,
+                    ex(line.attributes("CLOSE").toString()).toDouble))
+    }
+
+    // Проверка на пустоту возвращаемых double значений
+    def ex(param: String): String ={
+      if(param.isEmpty)
+        "0"
+      else
+        param
     }
   }
 
@@ -80,12 +88,26 @@ class UploadController @Inject()(db: Database, val controllerComponents: Control
   private def add(data: Data): Unit ={
     data match {
     // Добавление данных в таблицу security
-      case Security(_, _, _, _) => {
-        println(data.toString)
+      case Security(secid, regnumber, name, emitent_title) => {
+        db.withConnection{conn =>
+          // Проверка на наличие такой записи в securities
+          if(!conn.createStatement().executeQuery(s"select * from securities where secid='$secid'").next())
+            // Если такая запись не найдена добавление запись в securities
+            conn.createStatement().executeUpdate(s"insert into securities " +
+                                                  s"values ('$secid', '$regnumber', '$name', '$emitent_title')")
+        }
       }
       // Добавление данные в таблицу history
-      case History(_, _, _, _, _) => {
-        println(data.toString)
+      case History(secid, tradedate, numtrade, open, close) => {
+        db.withConnection{conn =>
+          // Проверка на наличие secid в таблице securities
+          if(conn.createStatement().executeQuery(s"select * from securities where secid='$secid'").next()) {
+            // Если найдена такая запись - добавляем в history
+            conn.createStatement().executeUpdate(s"insert into history (secid, tradedate, numtrade, open, close) " +
+                                                  s"values ('$secid', '$tradedate', $numtrade, $open, $close);")
+          }
+        }
+
       }
     }
   }
