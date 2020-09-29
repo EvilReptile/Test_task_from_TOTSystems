@@ -66,7 +66,7 @@ class CRUDController @Inject()(db: Database, val controllerComponents: Controlle
                                s"emitent_title='${request.body.asFormUrlEncoded.get("emitent_title").head.toString}' " +
                               s"where secid='${request.body.asFormUrlEncoded.get("secid").head.toString}'")
     }
-    Ok(request.body.asFormUrlEncoded.toString())
+    Ok("Entry updated successfully")
   }
 
   // Интерфейс для отображения формы для создания данных по записи в БД Security
