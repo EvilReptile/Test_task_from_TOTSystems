@@ -4,47 +4,44 @@ import java.io.File
 
 import javax.inject.Inject
 import model._
+import scala.xml.XML._
+import scala.xml.Elem
+import play.api.db.Database
 import play.api.mvc.{BaseController, ControllerComponents}
 
-class MainController @Inject()(val controllerComponents: ControllerComponents) extends BaseController {
+/**
+ * Контроллер для отображения истории
+ * На вход может получать параметры сортировики и
+ * по результатам выводить новую страницу
+ *
+ * list является GET контроллером, который выдает
+ * страницу с формой сортировки и таблицей данных
+ *
+ * listPost является POST контроллером, который принимает
+ * параметры сортировки и выводит отсортированную таблицу
+ */
+class MainController @Inject()(db: Database, val controllerComponents: ControllerComponents) extends BaseController {
 
-  // Интерфейс для отображения списка данных
+  // Интерфейс для отображения списка данных без параметров сортировки
   def list() = Action{
     Ok(views.html.list(List(
-      History(1, Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd"), "2020-09-28", 25.3, 2.5, 3.0),
-      History(1, Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd"), "2020-09-28", 25.3, 2.5, 3.0),
-      History(1, Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd"), "2020-09-28", 25.3, 2.5, 3.0),
-      History(1, Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd"), "2020-09-28", 25.3, 2.5, 3.0),
+      (History("ABCD", "2020-09-28", "25.3", "2.5", "3.0"), Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd")),
+      (History("ABCD", "2020-09-28", "25.3", "2.5", "3.0"), Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd")),
+      (History("ABCD", "2020-09-28", "25.3", "2.5", "3.0"), Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd")),
+      (History("ABCD", "2020-09-28", "25.3", "2.5", "3.0"), Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd")),
+      (History("ABCD", "2020-09-28", "25.3", "2.5", "3.0"), Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd"))
     )))
   }
 
+  // Интерфейс для отображения списка данных с применением параметров сортировки
   def listPost() = Action{request =>
     println(request.body.asFormUrlEncoded.toString)
     Ok(views.html.list(List(
-      History(1, Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd"), "2020-09-28", 25.3, 2.5, 3.0),
-      History(1, Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd"), "2020-09-28", 25.3, 2.5, 3.0),
-      History(1, Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd"), "2020-09-28", 25.3, 2.5, 3.0),
-      History(1, Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd"), "2020-09-28", 25.3, 2.5, 3.0),
+      (History("ABCD", "2020-09-28", "25.3", "2.5", "3.0"), Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd")),
+      (History("ABCD", "2020-09-28", "25.3", "2.5", "3.0"), Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd")),
+      (History("ABCD", "2020-09-28", "25.3", "2.5", "3.0"), Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd")),
+      (History("ABCD", "2020-09-28", "25.3", "2.5", "3.0"), Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd")),
+      (History("ABCD", "2020-09-28", "25.3", "2.5", "3.0"), Security("ABCD", "12345", "Abcd Bcd Cd D", "abcd"))
     )))
   }
-
-  // Интерфейс для загрузки файлов с данными
-  def upload() = Action{
-    Ok(views.html.upload(""))
-  }
-
-  def uploadPost() = Action(parse.multipartFormData){
-    request => request.body.file("file").map{file =>
-      test(file.ref.toFile)
-      Ok(views.html.upload("File upload"))
-    }.getOrElse{
-      Ok(views.html.upload("Error uploading file"))
-    }
-  }
-
-  private def test(file: File): Unit ={
-    for(a <- (scala.xml.XML.loadFile(file) \\ "row"))
-      println(scala.xml.XML.loadString(a.toString()).attribute("secid"))
-  }
-
 }

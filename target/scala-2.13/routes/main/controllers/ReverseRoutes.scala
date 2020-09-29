@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/chameleon/Project/Scala/test_task_from_totsystems/conf/routes
-// @DATE:Tue Sep 29 01:01:34 MSK 2020
+// @DATE:Tue Sep 29 13:41:29 MSK 2020
 
 import play.api.mvc.Call
 
@@ -10,24 +10,12 @@ import _root_.controllers.Assets.Asset
 // @LINE:7
 package controllers {
 
-  // @LINE:9
+  // @LINE:12
   class ReverseMainController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
-  
-    // @LINE:9
-    def uploadPost(): Call = {
-      
-      Call("POST", _prefix + { _defaultPrefix } + "upload")
-    }
-  
-    // @LINE:10
-    def upload(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "upload")
-    }
   
     // @LINE:12
     def list(): Call = {
@@ -54,6 +42,27 @@ package controllers {
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))
+    }
+  
+  }
+
+  // @LINE:9
+  class ReverseUploadController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:9
+    def uploadPost(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "upload")
+    }
+  
+    // @LINE:10
+    def upload(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "upload")
     }
   
   }

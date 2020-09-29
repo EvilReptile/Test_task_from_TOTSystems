@@ -5,7 +5,7 @@
         <title>Upload files</title>
     </head>
     <body>
-        @helper.form(action = routes.MainController.uploadPost, Symbol("enctype") -> "multipart/form-data") {
+        @helper.form(action = routes.UploadController.uploadPost, Symbol("enctype") -> "multipart/form-data") {
             <input type="file" name="file">
             <p>
                 <input type="submit">

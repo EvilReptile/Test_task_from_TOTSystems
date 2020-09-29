@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/chameleon/Project/Scala/test_task_from_totsystems/conf/routes
-// @DATE:Tue Sep 29 01:01:34 MSK 2020
+// @DATE:Tue Sep 29 13:41:29 MSK 2020
 
 package router
 
@@ -14,9 +14,11 @@ import _root_.controllers.Assets.Asset
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:7
-  Assets_1: controllers.Assets,
+  Assets_2: controllers.Assets,
   // @LINE:9
-  MainController_2: controllers.MainController,
+  UploadController_1: controllers.UploadController,
+  // @LINE:12
+  MainController_3: controllers.MainController,
   // @LINE:16
   CRUDController_0: controllers.CRUDController,
   val prefix: String
@@ -25,17 +27,19 @@ class Routes(
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:7
-    Assets_1: controllers.Assets,
+    Assets_2: controllers.Assets,
     // @LINE:9
-    MainController_2: controllers.MainController,
+    UploadController_1: controllers.UploadController,
+    // @LINE:12
+    MainController_3: controllers.MainController,
     // @LINE:16
     CRUDController_0: controllers.CRUDController
-  ) = this(errorHandler, Assets_1, MainController_2, CRUDController_0, "/")
+  ) = this(errorHandler, Assets_2, UploadController_1, MainController_3, CRUDController_0, "/")
 
   def withPrefix(addPrefix: String): Routes = {
     val prefix = play.api.routing.Router.concatPrefix(addPrefix, this.prefix)
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, Assets_1, MainController_2, CRUDController_0, prefix)
+    new Routes(errorHandler, Assets_2, UploadController_1, MainController_3, CRUDController_0, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -44,8 +48,8 @@ class Routes(
 
   def documentation = List(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """upload""", """controllers.MainController.uploadPost"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """upload""", """controllers.MainController.upload"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """upload""", """controllers.UploadController.uploadPost"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """upload""", """controllers.UploadController.upload"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """list""", """controllers.MainController.list"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """list""", """controllers.MainController.listPost"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """select""", """controllers.CRUDController.selectPost"""),
@@ -68,7 +72,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
   private[this] lazy val controllers_Assets_versioned0_invoker = createInvoker(
-    Assets_1.versioned(fakeValue[String], fakeValue[Asset]),
+    Assets_2.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Assets",
@@ -82,14 +86,14 @@ class Routes(
   )
 
   // @LINE:9
-  private[this] lazy val controllers_MainController_uploadPost1_route = Route("POST",
+  private[this] lazy val controllers_UploadController_uploadPost1_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("upload")))
   )
-  private[this] lazy val controllers_MainController_uploadPost1_invoker = createInvoker(
-    MainController_2.uploadPost,
+  private[this] lazy val controllers_UploadController_uploadPost1_invoker = createInvoker(
+    UploadController_1.uploadPost,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.MainController",
+      "controllers.UploadController",
       "uploadPost",
       Nil,
       "POST",
@@ -100,14 +104,14 @@ class Routes(
   )
 
   // @LINE:10
-  private[this] lazy val controllers_MainController_upload2_route = Route("GET",
+  private[this] lazy val controllers_UploadController_upload2_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("upload")))
   )
-  private[this] lazy val controllers_MainController_upload2_invoker = createInvoker(
-    MainController_2.upload,
+  private[this] lazy val controllers_UploadController_upload2_invoker = createInvoker(
+    UploadController_1.upload,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.MainController",
+      "controllers.UploadController",
       "upload",
       Nil,
       "GET",
@@ -122,7 +126,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("list")))
   )
   private[this] lazy val controllers_MainController_list3_invoker = createInvoker(
-    MainController_2.list,
+    MainController_3.list,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.MainController",
@@ -140,7 +144,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("list")))
   )
   private[this] lazy val controllers_MainController_listPost4_invoker = createInvoker(
-    MainController_2.listPost,
+    MainController_3.listPost,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.MainController",
@@ -303,31 +307,31 @@ class Routes(
     // @LINE:7
     case controllers_Assets_versioned0_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned0_invoker.call(Assets_1.versioned(path, file))
+        controllers_Assets_versioned0_invoker.call(Assets_2.versioned(path, file))
       }
   
     // @LINE:9
-    case controllers_MainController_uploadPost1_route(params@_) =>
+    case controllers_UploadController_uploadPost1_route(params@_) =>
       call { 
-        controllers_MainController_uploadPost1_invoker.call(MainController_2.uploadPost)
+        controllers_UploadController_uploadPost1_invoker.call(UploadController_1.uploadPost)
       }
   
     // @LINE:10
-    case controllers_MainController_upload2_route(params@_) =>
+    case controllers_UploadController_upload2_route(params@_) =>
       call { 
-        controllers_MainController_upload2_invoker.call(MainController_2.upload)
+        controllers_UploadController_upload2_invoker.call(UploadController_1.upload)
       }
   
     // @LINE:12
     case controllers_MainController_list3_route(params@_) =>
       call { 
-        controllers_MainController_list3_invoker.call(MainController_2.list)
+        controllers_MainController_list3_invoker.call(MainController_3.list)
       }
   
     // @LINE:13
     case controllers_MainController_listPost4_route(params@_) =>
       call { 
-        controllers_MainController_listPost4_invoker.call(MainController_2.listPost)
+        controllers_MainController_listPost4_invoker.call(MainController_3.listPost)
       }
   
     // @LINE:16

@@ -1,3 +1,3 @@
 package model
 
-case class History(id: Int, security: Security, tradedate: String, numtrade: Double, open: Double, close: Double)
+case class History(secid: String, tradedate: String, numtrade: String, open: String, close: String) extends Data

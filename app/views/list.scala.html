@@ -1,5 +1,5 @@
 @import model._
-@(history: List[History])
+@(history: List[(History, Security)])
 <html>
     <head>
         <title>List history</title>
@@ -38,14 +38,14 @@
             </tr>
             @for(element <- history){
                 <tr>
-                    <td>@element.security.secid</td>
-                    <td>@element.security.regnumber</td>
-                    <td>@element.security.name</td>
-                    <td>@element.security.emitent_title</td>
-                    <td>@element.tradedate</td>
-                    <td>@element.numtrade</td>
-                    <td>@element.open</td>
-                    <td>@element.close</td>
+                    <td>@element._2.secid</td>
+                    <td>@element._2.regnumber</td>
+                    <td>@element._2.name</td>
+                    <td>@element._2.emitent_title</td>
+                    <td>@element._1.tradedate</td>
+                    <td>@element._1.numtrade</td>
+                    <td>@element._1.open</td>
+                    <td>@element._1.close</td>
                 </tr>
             }
         </table>

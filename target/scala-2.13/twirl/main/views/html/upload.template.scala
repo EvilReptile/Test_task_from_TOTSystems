@@ -29,7 +29,7 @@ Seq[Any](format.raw/*2.1*/("""
         <title>Upload files</title>
     </head>
     <body>
-        """),_display_(/*8.10*/helper/*8.16*/.form(action = routes.MainController.uploadPost, Symbol("enctype") -> "multipart/form-data")/*8.108*/ {_display_(Seq[Any](format.raw/*8.110*/("""
+        """),_display_(/*8.10*/helper/*8.16*/.form(action = routes.UploadController.uploadPost, Symbol("enctype") -> "multipart/form-data")/*8.110*/ {_display_(Seq[Any](format.raw/*8.112*/("""
             """),format.raw/*9.13*/("""<input type="file" name="file">
             <p>
                 <input type="submit">
@@ -53,10 +53,10 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2020-09-29T01:01:57.050806
+                  DATE: 2020-09-29T13:43:59.925737
                   SOURCE: /home/chameleon/Project/Scala/test_task_from_totsystems/app/views/upload.scala.html
-                  HASH: e82c2ee86f0f8eb863def34279f24d1db769aff0
-                  MATRIX: 730->1|841->19|868->20|980->106|994->112|1095->204|1135->206|1175->219|1318->331|1355->341|1383->348|1415->353
+                  HASH: ac897009f2211b07b499f00f6d86509564b9f07f
+                  MATRIX: 730->1|841->19|868->20|980->106|994->112|1097->206|1137->208|1177->221|1320->333|1357->343|1385->350|1417->355
                   LINES: 21->1|26->2|27->3|32->8|32->8|32->8|32->8|33->9|37->13|38->14|38->14|39->15
                   -- GENERATED --
               */
