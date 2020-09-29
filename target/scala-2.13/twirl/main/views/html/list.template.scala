@@ -24,32 +24,31 @@ object list extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlF
       {
 
 
-Seq[Any](format.raw/*3.1*/("""<html>
+Seq[Any](format.raw/*3.1*/("""<html lang="ru">
     <head>
         <title>List history</title>
     </head>
     <body>
         """),_display_(/*8.10*/helper/*8.16*/.form(action = routes.MainController.listPost)/*8.62*/{_display_(Seq[Any](format.raw/*8.63*/("""
-            """),format.raw/*9.13*/("""<p>
-                <input type="radio" name="sort_type" value="ascending">По возрастанию</input>
-                <input type="radio" name="sort_type" value="descending">По убыванию</input>
-                <select name="column">
-                    <option disabled selected>Выберите нужный вам столбец</option>
-                    <option value="secid">secid</option>
-                    <option value="regnumber">regnumber</option>
-                    <option value="name">name</option>
-                    <option value="emitent_title">emitent title</option>
-                    <option value="tradedate">tradedate</option>
-                    <option value="numtrade">numtrade</option>
-                    <option value="open">open</option>
-                    <option value="close">close</option>
-                </select>
-            </p>
-            <p>
-                <input type="submit">
-            </p>
-        """)))}),format.raw/*27.10*/("""
-        """),format.raw/*28.9*/("""<table border="1">
+        """),format.raw/*9.9*/("""<p>
+            <input type="radio" name="sort_type" value="asc">По возрастанию</input>
+            <input type="radio" name="sort_type" value="desc" checked>По убыванию</input>
+            <select name="column">
+                <option value="secid" selected>secid</option>
+                <option value="regnumber">regnumber</option>
+                <option value="name">name</option>
+                <option value="emitent_title">emitent title</option>
+                <option value="tradedate">tradedate</option>
+                <option value="numtrade">numtrade</option>
+                <option value="open">open</option>
+                <option value="close">close</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit">
+        </p>
+        """)))}),format.raw/*26.10*/("""
+        """),format.raw/*27.9*/("""<table border="1">
             <tr>
                 <th>secid</th>
                 <th>regnumber</th>
@@ -60,19 +59,19 @@ Seq[Any](format.raw/*3.1*/("""<html>
                 <th>open</th>
                 <th>close</th>
             </tr>
-            """),_display_(/*39.14*/for(element <- history) yield /*39.37*/{_display_(Seq[Any](format.raw/*39.38*/("""
-                """),format.raw/*40.17*/("""<tr>
-                    <td>"""),_display_(/*41.26*/element/*41.33*/._2.secid),format.raw/*41.42*/("""</td>
-                    <td>"""),_display_(/*42.26*/element/*42.33*/._2.regnumber),format.raw/*42.46*/("""</td>
-                    <td>"""),_display_(/*43.26*/element/*43.33*/._2.name),format.raw/*43.41*/("""</td>
-                    <td>"""),_display_(/*44.26*/element/*44.33*/._2.emitent_title),format.raw/*44.50*/("""</td>
-                    <td>"""),_display_(/*45.26*/element/*45.33*/._1.tradedate),format.raw/*45.46*/("""</td>
-                    <td>"""),_display_(/*46.26*/element/*46.33*/._1.numtrade),format.raw/*46.45*/("""</td>
-                    <td>"""),_display_(/*47.26*/element/*47.33*/._1.open),format.raw/*47.41*/("""</td>
-                    <td>"""),_display_(/*48.26*/element/*48.33*/._1.close),format.raw/*48.42*/("""</td>
-                </tr>
-            """)))}),format.raw/*50.14*/("""
-        """),format.raw/*51.9*/("""</table>
+            """),_display_(/*38.14*/for(element <- history) yield /*38.37*/{_display_(Seq[Any](format.raw/*38.38*/("""
+            """),format.raw/*39.13*/("""<tr>
+                <td>"""),_display_(/*40.22*/element/*40.29*/._2.secid),format.raw/*40.38*/("""</td>
+                <td>"""),_display_(/*41.22*/element/*41.29*/._2.regnumber),format.raw/*41.42*/("""</td>
+                <td>"""),_display_(/*42.22*/element/*42.29*/._2.name),format.raw/*42.37*/("""</td>
+                <td>"""),_display_(/*43.22*/element/*43.29*/._2.emitent_title),format.raw/*43.46*/("""</td>
+                <td>"""),_display_(/*44.22*/element/*44.29*/._1.tradedate),format.raw/*44.42*/("""</td>
+                <td>"""),_display_(/*45.22*/element/*45.29*/._1.numtrade),format.raw/*45.41*/("""</td>
+                <td>"""),_display_(/*46.22*/element/*46.29*/._1.open),format.raw/*46.37*/("""</td>
+                <td>"""),_display_(/*47.22*/element/*47.29*/._1.close),format.raw/*47.38*/("""</td>
+            </tr>
+            """)))}),format.raw/*49.14*/("""
+        """),format.raw/*50.9*/("""</table>
     </body>
 </html>"""))
       }
@@ -90,11 +89,11 @@ Seq[Any](format.raw/*3.1*/("""<html>
 
               /*
                   -- GENERATED --
-                  DATE: 2020-09-29T13:56:43.568381
-                  SOURCE: /home/chameleon/Project/Scala/test_task_from_totsystems/app/views/list.scala.html
-                  HASH: 1791a3fb7fb24fd067f98a74c823d665c8cba644
-                  MATRIX: 432->1|781->17|911->54|1023->140|1037->146|1091->192|1129->193|1169->206|2125->1131|2161->1140|2520->1472|2559->1495|2598->1496|2643->1513|2700->1543|2716->1550|2746->1559|2804->1590|2820->1597|2854->1610|2912->1641|2928->1648|2957->1656|3015->1687|3031->1694|3069->1711|3127->1742|3143->1749|3177->1762|3235->1793|3251->1800|3284->1812|3342->1843|3358->1850|3387->1858|3445->1889|3461->1896|3491->1905|3563->1946|3599->1955
-                  LINES: 17->1|22->2|27->3|32->8|32->8|32->8|32->8|33->9|51->27|52->28|63->39|63->39|63->39|64->40|65->41|65->41|65->41|66->42|66->42|66->42|67->43|67->43|67->43|68->44|68->44|68->44|69->45|69->45|69->45|70->46|70->46|70->46|71->47|71->47|71->47|72->48|72->48|72->48|74->50|75->51
+                  DATE: 2020-09-30T02:21:27.619299
+                  SOURCE: /home/chameleon/Project/Scala/Test_task_from_TOTSystems/app/views/list.scala.html
+                  HASH: 403eca3dce9116ebbe7d35e8603de5d8f1eb802c
+                  MATRIX: 432->1|781->17|911->54|1033->150|1047->156|1101->202|1139->203|1174->212|1988->995|2024->1004|2383->1336|2422->1359|2461->1360|2502->1373|2555->1399|2571->1406|2601->1415|2655->1442|2671->1449|2705->1462|2759->1489|2775->1496|2804->1504|2858->1531|2874->1538|2912->1555|2966->1582|2982->1589|3016->1602|3070->1629|3086->1636|3119->1648|3173->1675|3189->1682|3218->1690|3272->1717|3288->1724|3318->1733|3386->1770|3422->1779
+                  LINES: 17->1|22->2|27->3|32->8|32->8|32->8|32->8|33->9|50->26|51->27|62->38|62->38|62->38|63->39|64->40|64->40|64->40|65->41|65->41|65->41|66->42|66->42|66->42|67->43|67->43|67->43|68->44|68->44|68->44|69->45|69->45|69->45|70->46|70->46|70->46|71->47|71->47|71->47|73->49|74->50
                   -- GENERATED --
               */
           
