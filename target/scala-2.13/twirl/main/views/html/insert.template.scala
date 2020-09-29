@@ -53,8 +53,8 @@ Seq[Any](format.raw/*2.1*/("""<html>
 
               /*
                   -- GENERATED --
-                  DATE: 2020-09-29T00:11:28.445098
-                  SOURCE: /home/chameleon/Project/Scala/test_task_from_totsystems/app/views/insert.scala.html
+                  DATE: 2020-09-30T02:20:01.661433
+                  SOURCE: /home/chameleon/Project/Scala/Test_task_from_TOTSystems/app/views/insert.scala.html
                   HASH: 7c09c44ce3beff99510907702b4a9d09fc2aedc7
                   MATRIX: 730->1|839->17|960->112|974->118|1030->166|1068->167|1108->180|1484->525|1521->535|1547->540|1579->545
                   LINES: 21->1|26->2|31->7|31->7|31->7|31->7|32->8|37->13|38->14|38->14|39->15

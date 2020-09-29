@@ -54,8 +54,8 @@ Seq[Any](format.raw/*2.1*/("""<html>
 
               /*
                   -- GENERATED --
-                  DATE: 2020-09-29T00:11:28.434765
-                  SOURCE: /home/chameleon/Project/Scala/test_task_from_totsystems/app/views/delete.scala.html
+                  DATE: 2020-09-30T02:20:01.651134
+                  SOURCE: /home/chameleon/Project/Scala/Test_task_from_TOTSystems/app/views/delete.scala.html
                   HASH: 199d6ed2b5db543f2e372f4ebe8a38fdb7b70aa2
                   MATRIX: 736->1|853->25|974->120|988->126|1044->174|1082->175|1122->188|1259->298|1294->317|1333->318|1382->339|1425->355|1449->358|1479->361|1503->364|1561->391|1602->404|1686->457|1718->462
                   LINES: 21->1|26->2|31->7|31->7|31->7|31->7|32->8|34->10|34->10|34->10|35->11|35->11|35->11|35->11|35->11|36->12|37->13|39->15|40->16
